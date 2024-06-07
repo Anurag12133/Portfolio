@@ -1,4 +1,4 @@
-// "use client";
+"use client";
 // import React from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { PhoneIcon, MapPinIcon, EnvelopeIcon } from "@heroicons/react/20/solid";

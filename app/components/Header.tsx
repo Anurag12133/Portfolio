@@ -1,9 +1,13 @@
 "use client";
+import { Social } from "@/type";
 import { motion } from "framer-motion";
+import Link from "next/link";
 import React from "react";
 import { SocialIcon } from "react-social-icons";
-type Props = {};
-const Header = ({}: Props) => {
+type Props = {
+  socials: Social[];
+};
+const Header = ({ socials }: Props) => {
   return (
     <header className="sticky top-0 flex items-start justify-between max-w-7xl mx-auto z-20 xl:items-center p-5">
       <motion.div
@@ -17,35 +21,45 @@ const Header = ({}: Props) => {
           opacity: 1,
           scale: 1,
         }}
+        transition={{ duration: 1.5 }}
+        className="flex flex-row items-center "
       >
-        <SocialIcon
-          url="https://github.com/Anurag12133"
-          fgColor="grey"
-          bgColor="transparent"
-        />
-        <SocialIcon
-          url="https://github.com/Anurag12133"
-          fgColor="grey"
-          bgColor="transparent"
-        />
-        <SocialIcon
-          url="https://github.com/Anurag12133"
-          fgColor="grey"
-          bgColor="transparent"
-        />
+        {socials &&
+          socials.map((social) => (
+            <SocialIcon
+              key={social._id}
+              url={social.url}
+              fgColor="grey"
+              bgColor="transparent"
+            />
+          ))}
       </motion.div>
-      <div>
-        <SocialIcon
-          className="cursor-pointer"
-          network="email"
-          fgColor="grey"
-          bgColor="transparent"
-          href="#contact"
-        />
-        <p className="uppercase hidden md:inline-flex text-sm text-grey-400">
-          Get in Touch
-        </p>
-      </div>
+      <Link href="#contact">
+        <motion.div
+          initial={{
+            x: 500,
+            opacity: 0,
+            scale: 0.5,
+          }}
+          animate={{
+            x: 0,
+            opacity: 1,
+            scale: 1,
+          }}
+          transition={{ duration: 1.5 }}
+          className="flex flex-row items-center text-gray-300 cursor-pointer"
+        >
+          <SocialIcon
+            className="cursor-pointer"
+            network="email"
+            fgColor="grey"
+            bgColor="transparent"
+          />
+          <p className="uppercase hidden md:inline-flex text-sm text-grey-400">
+            Get in Touch
+          </p>
+        </motion.div>
+      </Link>
     </header>
   );
 };

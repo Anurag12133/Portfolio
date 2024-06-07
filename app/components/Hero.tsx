@@ -18,7 +18,7 @@ const Hero = () => {
       <BackGroundCircles />
       <img
         className="relative rounded-full h-32 w-32 mx-auto object-cover"
-        src="https://app.gemoo.com/share/image-annotation/657221811430723584?codeId=vJ1Jddz4LeRWo&origin=imageurlgenerator&card=657221808733786112"
+        src="https://www.shutterstock.com/image-vector/young-man-anime-style-character-600nw-2313503433.jpg"
       />
       <div className="z-20">
         <h2 className="text-sm uppercase text-gray-500 pb-2 tracking-[15px] ">
